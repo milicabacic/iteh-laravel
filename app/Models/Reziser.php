@@ -14,4 +14,8 @@ class Reziser extends Model
         'prezime',
         'godinaRodjenja'
     ];
+
+    public function filmovi(){
+        return $this->hasMany(Film::class);
+    }
 }

@@ -15,4 +15,16 @@ class Film extends Model
         'godina_premijere'
     ];
 
+    public function reziser(){
+        return $this->belongsTo(Reziser::class);
+    }
+ 
+    public function zanr(){
+        return $this->belongsTo(Zanr::class);
+    }
+
+    public function user(){
+        return $this->belongsTo(User::class);
+    }
+
 }

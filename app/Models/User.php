@@ -23,6 +23,10 @@ class User extends Authenticatable
         'password',
     ];
 
+    public function filmovi(){
+        return $this->hasMany(Film::class);
+    }
+
     /**
      * The attributes that should be hidden for serialization.
      *

@@ -12,4 +12,8 @@ class Zanr extends Model
     protected $fillable = [
         'naziv_zanra'
     ];
+
+    public function filmovi(){
+        return $this->hasMany(Film::class);
+    }
 }

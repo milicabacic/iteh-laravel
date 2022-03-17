@@ -4,6 +4,11 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Film;
+use App\Models\User;
+use App\Models\Zanr;
+use App\Models\Reziser;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,6 +19,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
+        Film::truncate();
+        User::truncate();
+        Reziser::truncate();
+        Zanr::truncate();
+
+        $this->call([
+            ZanrSeeder::class
+        ]);
+
+        Film::factory(10)->create();
     }
 }
