@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateFilmsTable extends Migration
+class CreateZanrsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,9 @@ class CreateFilmsTable extends Migration
      */
     public function up()
     {
-        Schema::create('films', function (Blueprint $table) {
+        Schema::create('zanrs', function (Blueprint $table) {
             $table->id();
-            $table->string('naslov');
-            $table->string('produkcija');
-            $table->integer('godina_premijere');
-            $table->foreignId('reziser_id');
-            $table->foreignId('zanr_id');
-            $table->foreignId('user_id');
+            $table->string('naziv_zanra')->unique();
             $table->timestamps();
         });
     }
@@ -32,6 +27,6 @@ class CreateFilmsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('films');
+        Schema::dropIfExists('zanrs');
     }
 };
