@@ -21,7 +21,7 @@ class FilmFactory extends Factory
     public function definition()
     {
         return [
-            'naslov'=>$this->faker->word(),
+            'naziv'=>$this->faker->word(),
             'produkcija'=>$this->faker->word(),
             'godina_premijere'=>$this->faker->numberBetween(1970,2022),
             'reziser_id'=>Reziser::factory(),
