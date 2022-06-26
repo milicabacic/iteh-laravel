@@ -25,6 +25,8 @@ class AuthController extends Controller
         if(count($existingUser)!=0){
             return response()->json(['message'=>'User with this email alredy exists in system!']);
         }
+       
+
         $user=User::create([
             'name'=>$request->name,
             'email'=>$request->email,

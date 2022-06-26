@@ -43,7 +43,7 @@ class FilmController extends Controller
         $films=Film::get()->where('reziser_id',$reziser_id);
 
         if(count($films)==0){
-            return response()->json('Designer with this id does not exist!');
+            return response()->json('Reziser with this id does not exist!');
         }
 
         $my_films=array();
@@ -55,16 +55,16 @@ class FilmController extends Controller
     }
 
     public function films(Request $request){
-        // $films=Film::get()->where('user_id',Auth::user()->id);
-        // if(count($films)==0){
-        //     return 'You do not have saved films!';
-        // }
-        // $my_films=array();
-        // foreach($films as $film){
-        //     array_push($my_films,new FilmResource($film));
-        // }
+        $films=Film::get()->where('user_id',Auth::user()->id);
+        if(count($films)==0){
+            return 'You do not have saved films!';
+        }
+        $my_films=array();
+        foreach($films as $film){
+            array_push($my_films,new FilmResource($film));
+        }
 
-        return $films;
+        return $my_films;
     }
 
     public function getByZanr($zanr_id){
